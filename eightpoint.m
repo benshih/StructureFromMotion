@@ -34,7 +34,8 @@ function [ F ] = eightpoint( X, Y, M )
     F = reshape(V(:,9), 3, 3)';
     [FU, FS, FV] = svd(F);
     FS(3,3) = 0;
-    F = FU*FS*FV';
+    F = FU*FS*FV'
+    F = F.*M;
     
 end
 
@@ -42,3 +43,5 @@ end
 %% Useful for checking if the points are correct:
 % close; figure; imshow(im2);hold on; scatter(myBasePts(:,1), myBasePts(:,2))
 % close; figure; imshow(im1);hold on; scatter(myInputPts(:,1), myInputPts(:,2))
+
+% F = eightpoint([myBasePts(:,1) myInputPts(:,1)], [myBasePts(:,2) myInputPts(:,2)], 640)
