@@ -16,6 +16,8 @@ function [ F ] = eightpoint( X, Y, M )
     y = xscale(:,2);
     xp = yscale(:,1);
     yp = yscale(:,2);
+
+    numPts = size(xp, 1);
     
     % Generate the Nx9 A matrix.
     A = [x.*xp, ...
