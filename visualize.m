@@ -23,8 +23,11 @@ close all
 load('temple/intrinsics.mat');
 load('temple/some_corresp.mat');
 load('many_corresp.mat');
+im1 = imread('temple/im1.png');
+im2 = imread('temple/im2.png');
 
-F = eightpoint(pts1, pts2, 640);
+M = max(size(im1));
+F = eightpoint(pts1, pts2, M);
 
 M1 = [1 0 0 0; 0 1 0 0; 0 0 1 0];
 M2 = camera2(F, K1, K2, pts1, pts2);
